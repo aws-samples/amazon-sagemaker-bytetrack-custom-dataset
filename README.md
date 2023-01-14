@@ -1,6 +1,6 @@
 # Train and Deploy ByteTrack with Amazon SageMaker
 
-[ByteTrack](https://github.com/ifzhang/ByteTrack) is a simple, fast and strong multi-object tracker. In this repository, we demonstrate how to train and deploy a ByteTrack model with SageMaker from scratch on custom dataset including:
+[ByteTrack](https://github.com/ifzhang/ByteTrack) is a simple, fast and strong multi-object tracker. In this repository, we demonstrate how to train and deploy a ByteTrack model with SageMaker from scratch on custom dataset. which consists of:
 - Label and process custom dataset with SageMaker Ground Truth
 - Train a ByteTrack mdoel
 - Deploy a ByteTrack model
