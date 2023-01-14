@@ -1,17 +1,18 @@
-## My Project
+# Train and Deploy ByteTrack with Amazon SageMaker
 
-TODO: Fill this README out!
+[ByteTrack](https://github.com/ifzhang/ByteTrack) is a simple, fast and strong multi-object tracker. In this project, we demonstrate how to deliver an end-to-end ByteTrack model, including:
+- Label data with SageMaker Ground Truth
+- Train a ByteTrack mdoel
+- Deploy an ByteTrack model
+    - Batch inference
+    - Deploy a real-time endpoint on p3.2xlarge
+    - Deploy a real-time endpoint on Inf1
 
-Be sure to:
+## 1. Label data with SageMaker Ground Truth
+Upload video clips and follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Then run the notebook [data_labeling.ipynb](./data_labeling.ipynb).
 
-* Change the title in this README
-* Edit your repository description on GitHub
+## 2. Train a model
+Once ground truth data is ready, we can run [bytetrack-training.ipynb](bytetrack-training.ipynb) to train a model. In this session, we convert ground truth data from SageMage Ground Truth into dataset which trainable to ByteTrack.
 
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+## 3. Deploy a model
+By using SageMaker SDK in [bytetrack-inference-yolox.ipynb](bytetrack-inference-yolox.ipynb), we can deploy a real-time inference endpoint. To run a batch inference, we can run [bytetrack-batch-inference.ipynb](bytetrack-batch-inference.ipynb).
