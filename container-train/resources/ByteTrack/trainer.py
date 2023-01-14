@@ -324,10 +324,12 @@ class Trainer:
         if self.rank == 0:
             print('Save model')
             save_model = self.ema_model.ema if self.use_model_ema else self.model
-            trace = torch.jit.trace(save_model.float().eval(), torch.zeros([1, 3, self.input_size[0], self.input_size[1]]).to(self.infer_device).float())
+            trace = torch.jit.trace(save_model.to(self.infer_device).float().eval(), torch.zeros([1, 3, self.input_size[0], self.input_size[1]]).to(self.infer_device).float())
             
             ckpt_file = os.path.join(self.file_name, "model.pth")
             trace.save(ckpt_file)
+            if self.infer_device == "cpu":
+                save_model.to('cuda')
 
     def save_ckpt(self, ckpt_name, update_best_ckpt=False):
         if self.rank == 0:
