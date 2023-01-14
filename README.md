@@ -1,12 +1,12 @@
 # Train and Deploy ByteTrack with Amazon SageMaker
 
-[ByteTrack](https://github.com/ifzhang/ByteTrack) is a simple, fast and strong multi-object tracker. In this project, we demonstrate how to deliver an end-to-end ByteTrack model, including:
-- Label data with SageMaker Ground Truth
+[ByteTrack](https://github.com/ifzhang/ByteTrack) is a simple, fast and strong multi-object tracker. In this repository, we demonstrate how to train and deploy a ByteTrack model with SageMaker from scratch on custom dataset including:
+- Label and process custom dataset with SageMaker Ground Truth
 - Train a ByteTrack mdoel
-- Deploy an ByteTrack model
+- Deploy a ByteTrack model
     - Batch inference
-    - Deploy a real-time endpoint on p3.2xlarge
-    - Deploy a real-time endpoint on Inf1
+    - A real-time endpoint on p3.2xlarge
+    - A real-time endpoint on Inf1
 
 ## 1. Label data with SageMaker Ground Truth
 Upload video clips and follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Then run the notebook [data_labeling.ipynb](./data_labeling.ipynb).
