@@ -1,0 +1,17 @@
+numpy
+scikit-image
+tqdm
+Pillow
+thop
+ninja
+tabulate
+tensorboard
+motmetrics
+filterpy
+h5py
+
+loguru
+cython_bbox
+lap
+torch>=1.9
+torchvision>=0.10.0
