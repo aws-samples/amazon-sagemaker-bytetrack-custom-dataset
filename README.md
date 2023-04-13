@@ -14,4 +14,4 @@ Upload video clips and follow [Use Amazon SageMaker Ground Truth to Label Data](
 Once ground truth data is ready, we can run [bytetrack-training.ipynb](bytetrack-training.ipynb) to train a model. In this session, we convert ground truth data from SageMage Ground Truth into dataset which trainable to ByteTrack.
 
 ## 3. Model deployment
-By using SageMaker SDK in [bytetrack-inference-yolox.ipynb](bytetrack-inference-yolox.ipynb), we can deploy a real-time inference endpoint. To run a batch inference, we can run [bytetrack-batch-inference.ipynb](bytetrack-batch-inference.ipynb).
+By using SageMaker SDK in [bytetrack-inference-yolox.ipynb](bytetrack-inference-yolox.ipynb), we can deploy a real-time inference endpoint. To run a batch inference, we can run [bytetrack-batch-inference.ipynb](bytetrack-batch-inference.ipynb). You also can deploy an asychronous inference endpoint by running [bytetrack-inference-yolox-async.ipynb](bytetrack-inference-yolox-async.ipynb).
