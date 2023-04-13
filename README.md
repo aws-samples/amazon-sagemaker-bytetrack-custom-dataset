@@ -6,6 +6,7 @@
 - Deploy a ByteTrack model
     - Batch inference
     - Real-time endpoint on p3.2xlarge
+    - Asynchronous endpoint on p3.2xlarge
 
 ## 1. Label data with SageMaker Ground Truth
 Upload video clips and follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Then run the notebook [data_labeling.ipynb](./data_labeling.ipynb).
