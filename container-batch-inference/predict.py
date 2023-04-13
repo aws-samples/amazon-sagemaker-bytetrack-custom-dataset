@@ -145,7 +145,7 @@ class Predictor(object):
             #logger.info("Infer time: {:.4f}s".format(time.time() - t0))
         return outputs, img_info
 
-def image_demo(predictor, vis_folder, current_time, args, data_dir):
+def image_demo(predictor, vis_folder, current_time, args, data_dir, save_mot=True):
     files = get_image_list(data_dir)
     files.sort()
     
@@ -169,6 +169,7 @@ def image_demo(predictor, vis_folder, current_time, args, data_dir):
             for t in online_targets:
                 tlwh = t.tlwh
                 tid = t.track_id
+                print(tlwh)
                 vertical = tlwh[2] / tlwh[3] > args.aspect_ratio_thresh
                 if tlwh[2] * tlwh[3] > args.min_box_area and not vertical:
                     online_tlwhs.append(tlwh)
@@ -200,14 +201,14 @@ def image_demo(predictor, vis_folder, current_time, args, data_dir):
         if ch == 27 or ch == ord("q") or ch == ord("Q"):
             break
 
-    if True:
+    if save_mot:
         res_file = osp.join(vis_folder, f"{timestamp}.txt")
         with open(res_file, 'w') as f:
             f.writelines(results)
         logger.info(f"save results to {res_file}")
 
 
-def imageflow_demo(predictor, vis_folder, current_time, args, video_path):
+def imageflow_demo(predictor, vis_folder, current_time, args, video_path, save_mscoco=True):
     cap = cv2.VideoCapture(video_path)
     
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)  # float
@@ -302,7 +303,7 @@ def imageflow_demo(predictor, vis_folder, current_time, args, video_path):
             frame_gt_no += 1
         frame_id += 1
 
-    if True:
+    if save_mscoco:
         res_file = osp.join(mot_gt_dir, "gt.txt")
         with open(res_file, 'w') as f:
             f.writelines(results_gt)
