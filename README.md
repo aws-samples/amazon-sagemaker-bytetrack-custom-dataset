@@ -9,7 +9,7 @@
     - Asynchronous endpoint on p3.2xlarge
 
 ## 1. Label data with SageMaker Ground Truth
-Upload video clips and follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Then run the notebook [data_labeling.ipynb](./data_labeling.ipynb).
+We simulate the real business scenario to label video data. By running the notebook [data-preparation.ipynb](./data-preparation.ipynb), we can download sample video and prepare the video clips for input data for SageMaker Ground Truth. Then you can follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared.
 
 ## 2. Model training
 Once ground truth data is ready, we can run [bytetrack-training.ipynb](bytetrack-training.ipynb) to train a model. In this session, we convert ground truth data from SageMage Ground Truth into dataset which trainable to ByteTrack.
