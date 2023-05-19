@@ -16,6 +16,8 @@
 - Make sure that you have a minimum of one GPU instance (in our sample code, we use `ml.p3.2xlarge`) for Processing jobs. If it is the first time you run a processing job on the GPU instance, you will need to [request a service quota increase for SageMaker Processing Jobs]( https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html).
 - The region `us-east-1` is recommended.
 
+![alt text](./img/illustration_process.png)
+
 ## 1. Label data with SageMaker Ground Truth
 We simulate the real business scenario to label video data. By running the notebook [data-preparation.ipynb](./data-preparation.ipynb), we can download sample video and prepare the video clips for input data for SageMaker Ground Truth. Then you can follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Note that it takes time to label all objects in all frames, to accelarate the labelling job, you can label only few objects(person) and leverage `Predict` function in SageMaker Ground Truth. For your reference, we labeled about 15 persons in each 2 frames, which took about 2 hours by leveraging `Predict` function. You can change the extraction rate in **Frame extraction** when creating a Labeling Job with SageMaker Ground Truth Console to accelerate labeling job.
 
