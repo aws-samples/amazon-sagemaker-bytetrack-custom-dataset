@@ -5,8 +5,8 @@
 - Train a ByteTrack mdoel
 - Deploy a ByteTrack model
     - Batch inference
-    - Real-time endpoint on p3.2xlarge
-    - Asynchronous endpoint on p3.2xlarge
+    - Real-time endpoint
+    - Asynchronous endpoint
 
 ## Prerequisites
 - [Create an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) or use the existing AWS account.
@@ -17,7 +17,7 @@
 - The region `us-east-1` is recommended.
 
 ## 1. Label data with SageMaker Ground Truth
-We simulate the real business scenario to label video data. By running the notebook [data-preparation.ipynb](./data-preparation.ipynb), we can download sample video and prepare the video clips for input data for SageMaker Ground Truth. Then you can follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Note that it takes time to label all objects in all frames, to accelarate the labelling job, you can label only few objects(person) and leverage `Predict` function in SageMaker Ground Truth.  
+We simulate the real business scenario to label video data. By running the notebook [data-preparation.ipynb](./data-preparation.ipynb), we can download sample video and prepare the video clips for input data for SageMaker Ground Truth. Then you can follow [Use Amazon SageMaker Ground Truth to Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-getting-started.html) to create a labeling job and label data you prepared. Note that it takes time to label all objects in all frames, to accelarate the labelling job, you can label only few objects(person) and leverage `Predict` function in SageMaker Ground Truth. For your reference, we labeled about 15 persons in each 2 frames, which took about 2 hours by leveraging `Predict` function. You can change the extraction rate in **Frame extraction** when creating a Labeling Job with SageMaker Ground Truth Console to accelerate labeling job.
 
 ## 2. Model training
 Once ground truth data is ready, we can run [bytetrack-training.ipynb](bytetrack-training.ipynb) to train a model. In this session, we convert ground truth data from SageMage Ground Truth into dataset which trainable to ByteTrack.
