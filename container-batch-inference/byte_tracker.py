@@ -13,12 +13,19 @@ from .kalman_filter import KalmanFilter
 from yolox.tracker import matching
 from .basetrack import BaseTrack, TrackState
 
+version = np.__version__.split('.')
+major, minor, micro = int(version[0]), int(version[1]), int(''.join(filter(str.isdigit, version[2])))
+if major >= 1 and minor >= 20:
+    NP_FLOAT_TYPE = np.float64
+else:
+    NP_FLOAT_TYPE = np.float
+
 class STrack(BaseTrack):
     shared_kalman = KalmanFilter()
     def __init__(self, tlwh, score):
 
         # wait activate
-        self._tlwh = np.asarray(tlwh, dtype=np.float)
+        self._tlwh = np.asarray(tlwh, dtype=NP_FLOAT_TYPE)
         self.kalman_filter = None
         self.mean, self.covariance = None, None
         self.is_activated = False
