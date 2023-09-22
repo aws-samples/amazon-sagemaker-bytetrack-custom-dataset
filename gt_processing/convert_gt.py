@@ -50,11 +50,11 @@ def create_ann_file(seq_name, class_map, split, file_name='det'):
                 conf_score = label_attr['conf_score'] if 'conf_score' in label_attr else 1
                 
                 if file_name == 'det':
-                    ann = [frame_num, -1, top, left, width, height, conf_score, -1, -1]
+                    ann = [frame_num, -1, left, top, width, height, conf_score, -1, -1]
                 else:
                     obj_id = bbox['objectName'].split(':')[-1]
                     class_name = bbox['objectName'].split(':')[0]
-                    ann = [frame_num, obj_id, top, left, width, height, conf_score, class_map[class_name], ratio_vis]
+                    ann = [frame_num, obj_id, left, top, width, height, conf_score, class_map[class_name], ratio_vis]
                 det_ann.append(','.join(str(item) for item in ann))
     
     det_dir = os.path.join(MOT_DIR, split, seq_name, file_name)
